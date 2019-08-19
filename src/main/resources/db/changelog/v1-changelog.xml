@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="68d2e052-8a30-4c1c-974c-d05cdcc5d030" author="uanderson">
+    <sql>
+      CREATE TABLE businesses (
+        id VARCHAR(22),
+        name TEXT NOT NULL,
+        address TEXT NOT NULL,
+        latitude VARCHAR(255) NOT NULL,
+        longitude VARCHAR(255) NOT NULL
+      )
+    </sql>
+  </changeSet>
+</databaseChangeLog>
