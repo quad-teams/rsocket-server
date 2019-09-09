@@ -1,23 +1,24 @@
 package team.quad.rsocket.server;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Controller
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class BusinessRSocketController {
 
-  private BusinessRepository businessRepository;
+  private final BusinessRepository businessRepository;
 
-  @MessageMapping("feedBusiness")
+  @MessageMapping("Business.Feed")
   public Flux<Business> feed() {
+    businessRepository.findAll();
     return businessRepository.findAll();
   }
 
-  @MessageMapping("collectBusiness")
+  @MessageMapping("Business.Collect")
   public Mono<Business> collect(Business business) {
     return businessRepository.save(business);
   }

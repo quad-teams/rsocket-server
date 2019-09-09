@@ -10,7 +10,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Table("scenario")
+@Table("businesses")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Business {
@@ -19,8 +19,11 @@ public class Business {
   @Setter(AccessLevel.PROTECTED)
   private String id;
 
-  @Column("sms_id")
+  @Column("name")
   private String name;
+
+  @Column("address")
+  private String address;
 
   @Column("latitude")
   private Double latitude;
